@@ -513,6 +513,11 @@ textarea.form-control {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
 }
+[data-color-scheme="light"] .form-control {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
 
 select.form-control {
   padding: var(--space-8) var(--space-12);
@@ -566,6 +571,10 @@ select.form-control {
   box-shadow: var(--shadow-sm);
   overflow: hidden;
   transition: box-shadow var(--duration-normal) var(--ease-standard);
+}
+[data-color-scheme="light"] .card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-card-border);
 }
 
 .card:hover {
