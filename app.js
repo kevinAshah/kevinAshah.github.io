@@ -44,9 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update navigation active state
         navLinks.forEach(link => {
             link.classList.remove('active');
+            link.removeAttribute('aria-current');
             const linkHref = link.getAttribute('href').substring(1); // Remove #
             if (linkHref === current) {
                 link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
             }
         });
     }
