@@ -146,20 +146,20 @@
 
 /* Light mode overrides (WCAG AA-friendly) */
 [data-color-scheme="light"] {
-  --color-background: #f8fafc; /* slate-50 */
-  --color-surface: #ffffff;
-  --color-text: #0f172a; /* slate-900 */
-  --color-text-secondary: #475569; /* slate-600 */
-  --color-primary: #0ea5e9; /* sky-500 */
-  --color-primary-hover: #0284c7; /* sky-600 */
-  --color-primary-active: #0369a1; /* sky-700 */
+  --color-background: #F8FAFC; /* cool slate off-white */
+  --color-surface: #FFFFFF;
+  --color-text: #0F172A;
+  --color-text-secondary: #475569;
+  --color-primary: #0EA5E9;
+  --color-primary-hover: #0284C7;
+  --color-primary-active: #0369A1;
   --color-secondary: rgba(2, 8, 23, 0.06);
   --color-secondary-hover: rgba(2, 8, 23, 0.1);
   --color-secondary-active: rgba(2, 8, 23, 0.16);
-  --color-border: #e2e8f0; /* slate-200 */
-  --color-btn-primary-text: #ffffff;
-  --color-card-border: #e2e8f0;
-  --color-card-border-inner: #e2e8f0;
+  --color-border: #E2E8F0;
+  --color-btn-primary-text: #FFFFFF;
+  --color-card-border: #E2E8F0;
+  --color-card-border-inner: #E2E8F0;
   --color-focus-ring: rgba(14, 165, 233, 0.35);
 }
 
