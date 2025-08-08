@@ -535,7 +535,7 @@ select.form-control {
 
 /* Card component */
 .card {
-  background-color: var(--color-surface);
+  background-color: #0f1214;
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-card-border);
   box-shadow: var(--shadow-sm);
@@ -815,8 +815,8 @@ section { content-visibility: auto; contain-intrinsic-size: 700px; }
 .hero {
   padding: var(--space-32) 0;
   text-align: center;
-  background: radial-gradient(1200px 600px at 50% -200px, rgba(56,189,248,0.12), transparent 60%),
-              radial-gradient(800px 400px at 10% 0, rgba(99,102,241,0.12), transparent 60%),
+  background: radial-gradient(1200px 600px at 50% -240px, rgba(56,189,248,0.16), transparent 60%),
+              radial-gradient(900px 420px at 10% -120px, rgba(99,102,241,0.10), transparent 60%),
               var(--color-background);
   min-height: 60vh;
   display: flex;
@@ -824,10 +824,12 @@ section { content-visibility: auto; contain-intrinsic-size: 700px; }
 }
 
 .hero__title {
-  font-size: var(--font-size-4xl);
+  font-size: 36px;
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--space-8);
   color: var(--color-text);
+  letter-spacing: var(--letter-spacing-tight);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.35);
 }
 
 .hero__subtitle {
@@ -1162,7 +1164,7 @@ section { content-visibility: auto; contain-intrinsic-size: 700px; }
 
 /* Contact Section */
 .contact {
-  background-color: var(--color-bg-5);
+  background-color: var(--color-surface);
 }
 
 .contact__intro {
@@ -1185,9 +1187,9 @@ section { content-visibility: auto; contain-intrinsic-size: 700px; }
   flex-direction: column;
   gap: var(--space-4);
   padding: var(--space-12);
-  background-color: var(--color-surface);
+  background-color: #0f1214; /* deeper card for contrast */
   border-radius: var(--radius-base);
-  border: 1px solid var(--color-border);
+  border: 1px solid #2a3340; /* clearer edge */
 }
 
 .contact__item strong {
