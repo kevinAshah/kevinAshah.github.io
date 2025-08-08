@@ -473,6 +473,12 @@ pre code {
   border-radius: var(--radius-sm);
 }
 
+.btn--icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .btn--lg {
   padding: var(--space-10) var(--space-20);
   font-size: var(--font-size-lg);

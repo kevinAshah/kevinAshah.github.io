@@ -21,10 +21,19 @@ document.addEventListener('DOMContentLoaded', function() {
     applyTheme(initial);
 
     if (themeToggle) {
+        const sun = document.getElementById('icon-sun');
+        const moon = document.getElementById('icon-moon');
+        const reflect = () => {
+            const scheme = root.getAttribute('data-color-scheme');
+            if (scheme === 'light') { sun.classList.remove('hidden'); moon.classList.add('hidden'); }
+            else { sun.classList.add('hidden'); moon.classList.remove('hidden'); }
+        };
+        reflect();
         themeToggle.addEventListener('click', () => {
             const current = root.getAttribute('data-color-scheme') || initial;
             const next = current === 'light' ? 'dark' : 'light';
             applyTheme(next, true);
+            reflect();
         });
     }
 
