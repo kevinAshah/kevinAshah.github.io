@@ -38,6 +38,15 @@ Public repository for the user-site portfolio. This repo is deployed via GitHub 
 - Keep links relative (Pages-friendly)
 - Avoid external heavy dependencies; system fonts are fine
 
+## Engineering Philosophy
+
+Minimal style, maximal impact.
+
+- Start with a working prototype.
+- Continuously refactor for performance and readability.
+- Balance big-picture architecture with low-level detail.
+- Prioritize real impact over flashy features.
+
 ## Future ideas
 
 - Add sitemap.xml
