@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Scroll event listener
-    window.addEventListener('scroll', throttledScrollHandler);
+    window.addEventListener('scroll', throttledScrollHandler, { passive: true });
 
     // Initialize on page load
     updateActiveNavigation();
@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollToTopButton.style.opacity = '0';
             scrollToTopButton.style.visibility = 'hidden';
         }
-    });
+    }, { passive: true });
 
     // Console welcome message
     console.log('🚀 Kevin Shah Portfolio loaded successfully');
