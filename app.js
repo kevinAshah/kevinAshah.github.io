@@ -1,5 +1,40 @@
 // Kevin Shah Portfolio Website JavaScript
 document.addEventListener('DOMContentLoaded', function() {
+    // Theme management: system default with user override
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeMeta = document.getElementById('theme-color-meta');
+
+    function getSystemPref() {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function applyTheme(scheme, persist=false) {
+        root.setAttribute('data-color-scheme', scheme);
+        if (persist) localStorage.setItem('theme', scheme);
+        if (themeToggle) themeToggle.setAttribute('aria-pressed', String(scheme === 'light'));
+        if (themeMeta) themeMeta.setAttribute('content', scheme === 'light' ? '#f8fafc' : '#0b0d0f');
+    }
+
+    const stored = localStorage.getItem('theme');
+    const initial = stored || getSystemPref();
+    applyTheme(initial);
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const current = root.getAttribute('data-color-scheme') || initial;
+            const next = current === 'light' ? 'dark' : 'light';
+            applyTheme(next, true);
+        });
+    }
+
+    // Sync with system if no user override
+    const media = window.matchMedia('(prefers-color-scheme: light)');
+    if (media && !stored) {
+        media.addEventListener('change', (e) => {
+            applyTheme(e.matches ? 'light' : 'dark');
+        });
+    }
     // Navigation functionality
     const nav = document.querySelector('.nav');
     const navLinks = document.querySelectorAll('.nav__menu a');
