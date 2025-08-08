@@ -146,7 +146,7 @@
 
 /* Light mode overrides (WCAG AA-friendly) */
 [data-color-scheme="light"] {
-  --color-background: #F8FAFC; /* cool slate off-white */
+  --color-background: #FAF8F1; /* warm cream */
   --color-surface: #FFFFFF;
   --color-text: #0F172A;
   --color-text-secondary: #475569;
@@ -156,10 +156,10 @@
   --color-secondary: rgba(2, 8, 23, 0.06);
   --color-secondary-hover: rgba(2, 8, 23, 0.1);
   --color-secondary-active: rgba(2, 8, 23, 0.16);
-  --color-border: #E2E8F0;
+  --color-border: #E9E5DA; /* warm border */
   --color-btn-primary-text: #FFFFFF;
-  --color-card-border: #E2E8F0;
-  --color-card-border-inner: #E2E8F0;
+  --color-card-border: #E9E5DA;
+  --color-card-border-inner: #E9E5DA;
   --color-focus-ring: rgba(14, 165, 233, 0.35);
 }
 
@@ -849,8 +849,8 @@ section { content-visibility: auto; contain-intrinsic-size: 700px; }
 }
 
 [data-color-scheme="light"] .hero {
-  background: radial-gradient(1200px 600px at 50% -240px, rgba(14,165,233,0.08), transparent 60%),
-              radial-gradient(900px 420px at 10% -120px, rgba(99,102,241,0.05), transparent 60%),
+  background: radial-gradient(1200px 600px at 50% -240px, rgba(14,165,233,0.06), transparent 60%),
+              radial-gradient(900px 420px at 10% -120px, rgba(99,102,241,0.04), transparent 60%),
               var(--color-background);
 }
 
@@ -1197,6 +1197,9 @@ section { content-visibility: auto; contain-intrinsic-size: 700px; }
 .contact {
   background-color: var(--color-surface);
 }
+[data-color-scheme="light"] .contact {
+  background-color: var(--color-background);
+}
 
 .contact__intro {
   font-size: var(--font-size-lg);
@@ -1218,9 +1221,9 @@ section { content-visibility: auto; contain-intrinsic-size: 700px; }
   flex-direction: column;
   gap: var(--space-4);
   padding: var(--space-12);
-  background-color: #0f1214; /* deeper card for contrast */
+  background-color: var(--color-surface);
   border-radius: var(--radius-base);
-  border: 1px solid #2a3340; /* clearer edge */
+  border: 1px solid var(--color-border);
 }
 
 .contact__item strong {
