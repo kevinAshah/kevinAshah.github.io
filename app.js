@@ -46,28 +46,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     // Navigation functionality
     const nav = document.querySelector('.nav');
-    const navLinks = document.querySelectorAll('.nav__menu a');
+    const navMenu = document.getElementById('primary-menu');
+    const navLinks = navMenu ? navMenu.querySelectorAll('a') : [];
+    const menuToggle = document.getElementById('menu-toggle');
     const sections = document.querySelectorAll('section[id]');
 
     // Smooth scrolling for navigation links
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const headerOffset = 100;
-                const elementPosition = targetSection.offsetTop;
-                const offsetPosition = elementPosition - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
+    nav.addEventListener('click', (e) => {
+        const t = e.target.closest('a[href^="#"]');
+        if (!t) return;
+        e.preventDefault();
+        const targetSection = document.querySelector(t.getAttribute('href'));
+        if (targetSection) {
+            const headerOffset = 100;
+            const offsetPosition = targetSection.offsetTop - headerOffset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        }
+        if (menuToggle && navMenu) { menuToggle.setAttribute('aria-expanded', 'false'); navMenu.classList.remove('open'); }
     });
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!expanded));
+            navMenu.classList.toggle('open');
+        });
+    }
 
     // Active navigation highlighting
     function updateActiveNavigation() {
@@ -130,40 +134,10 @@ document.addEventListener('DOMContentLoaded', function() {
     updateHeaderBackground();
 
     // Enhanced project hover effects
-    const projects = document.querySelectorAll('.project');
-    projects.forEach(project => {
-        project.addEventListener('mouseenter', function() {
-            this.style.borderColor = 'var(--color-primary)';
-            this.style.transform = 'translateY(-4px)';
-            this.style.boxShadow = 'var(--shadow-lg)';
-        });
-        
-        project.addEventListener('mouseleave', function() {
-            this.style.borderColor = 'var(--color-border)';
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = 'var(--shadow-sm)';
-        });
-    });
+    // Hover effects handled via CSS only; remove JS style thrash
 
     // Enhanced tech tag interactions
-    const techTags = document.querySelectorAll('.tech-tag');
-    techTags.forEach(tag => {
-        tag.style.transition = 'all 0.2s ease';
-        
-        tag.addEventListener('mouseenter', function() {
-            this.style.backgroundColor = 'var(--color-primary)';
-            this.style.color = 'var(--color-btn-primary-text)';
-            this.style.transform = 'translateY(-2px) scale(1.05)';
-            this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
-        });
-        
-        tag.addEventListener('mouseleave', function() {
-            this.style.backgroundColor = 'var(--color-bg-4)';
-            this.style.color = 'var(--color-text)';
-            this.style.transform = 'translateY(0) scale(1)';
-            this.style.boxShadow = 'none';
-        });
-    });
+    // Tech tag hovers: CSS handles transitions
 
     // Resume download with feedback
     const resumeButton = document.querySelector('a[download]');
@@ -225,20 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add hover effects to contact items
-    const contactItems = document.querySelectorAll('.contact__item');
-    contactItems.forEach(item => {
-        item.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
-        
-        item.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-2px)';
-            this.style.boxShadow = 'var(--shadow-md)';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = 'none';
-        });
-    });
+    // Contact tile hovers: CSS handles transitions
 
     // Add subtle animations to value cards
     const valueCards = document.querySelectorAll('.value');

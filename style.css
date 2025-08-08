@@ -829,7 +829,10 @@ section {
 }
 
 /* Improve initial render by skipping rendering below-the-fold until needed */
-section { content-visibility: auto; contain-intrinsic-size: 700px; }
+#about { content-visibility: auto; contain-intrinsic-size: 520px; }
+#experience { content-visibility: auto; contain-intrinsic-size: 900px; }
+#projects { content-visibility: auto; contain-intrinsic-size: 1200px; }
+#education, #contact { content-visibility: auto; contain-intrinsic-size: 700px; }
 
 .section__title {
   font-size: var(--font-size-3xl);
@@ -1044,7 +1047,10 @@ section { content-visibility: auto; contain-intrinsic-size: 700px; }
   border-radius: var(--radius-lg);
   padding: var(--space-24);
   border: 1px solid var(--color-border);
+  transition: transform var(--duration-normal) var(--ease-standard);
 }
+
+.project-category:hover { transform: translateY(-2px); }
 
 .category__title {
   font-size: var(--font-size-2xl);
@@ -1061,19 +1067,16 @@ section { content-visibility: auto; contain-intrinsic-size: 700px; }
   gap: var(--space-24);
 }
 
+
 .project {
   padding: var(--space-20);
   background-color: var(--color-surface);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
-  transition: transform var(--duration-normal) var(--ease-standard),
-              box-shadow var(--duration-normal) var(--ease-standard);
+  transition: transform var(--duration-normal) var(--ease-standard);
 }
 
-.project:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
+.project:hover { transform: translateY(-2px); }
 
 .project__title {
   font-size: var(--font-size-xl);
@@ -1284,6 +1287,15 @@ section { content-visibility: auto; contain-intrinsic-size: 700px; }
     gap: var(--space-16);
     padding: var(--space-12);
   }
+  #menu-toggle { display: inline-flex !important; }
+  .nav__menu {
+    width: 100%;
+    flex-direction: column;
+    gap: var(--space-16);
+    margin-top: var(--space-8);
+    display: none;
+  }
+  .nav__menu.open { display: flex; }
   
   .nav__menu {
     gap: var(--space-16);
